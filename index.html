@@ -55,14 +55,19 @@
 @font-face{font-family:"Barlow";font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-700.woff2) format("woff2")}
 @font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-condensed-700.woff2) format("woff2")}
 @font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/barlow-condensed-800.woff2) format("woff2")}
-@font-face{font-family:"Condensed Fallback";src:local("Arial Narrow"),local("Roboto Condensed"),local("Arial");size-adjust:88%;ascent-override:105%}
+/* fontes reserva com a mesma largura média da Barlow: a troca de fonte não desloca o layout */
+@font-face{font-family:"Cond Fallback";font-weight:800;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arial");size-adjust:61.7%}
+@font-face{font-family:"Cond Fallback";font-weight:700;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arial");size-adjust:67.2%}
+@font-face{font-family:"Barlow Fallback";font-weight:400;src:local("Arial"),local("ArialMT");size-adjust:95.4%}
+@font-face{font-family:"Barlow Fallback";font-weight:600;src:local("Arial Bold"),local("Arial-BoldMT");size-adjust:93.4%}
+@font-face{font-family:"Barlow Fallback";font-weight:700;src:local("Arial Bold"),local("Arial-BoldMT");size-adjust:91.5%}
 :root{
   --navy:#0e2b52; --blue:#1d4f91; --sky:#7aa8dc; --sky-soft:#e7eff9;
   --lime:#a6c72d; --lime-dark:#4f6609; --cream:#f6f3ec; --sand:#e4dccb;
   --ink:#14213a; --muted:#4f5a6e; --line:#dfe4ec;
   --radius:18px; --shadow:0 18px 40px -18px rgba(14,43,82,.35);
-  --display:"Barlow Condensed","Condensed Fallback",sans-serif;
-  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --display:"Barlow Condensed","Cond Fallback",sans-serif;
+  --body:"Barlow","Barlow Fallback",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
@@ -663,7 +668,7 @@ address b{color:#fff;font-weight:600}
   </div>
 </section>
 
-<section class="about cv" id="sobre" aria-labelledby="about-title">
+<section class="about" id="sobre" aria-labelledby="about-title">
   <div class="wrap">
     <div class="about-img">
       <img src="assets/img/empresa-800.webp" alt="Caminhão na unidade industrial da Minerthal, com selo BPF na fachada" loading="lazy" decoding="async" width="800" height="509">
