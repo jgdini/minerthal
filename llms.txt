@@ -26,12 +26,12 @@ Catálogo com 43 produtos, classificados por rebanho (corte ou leite), fase (cri
 - Ciclo (Android): monta a estratégia anual de suplementação para cria e para recria e engorda.
 - Calculadora MinerBlock: calcula quantos blocos são necessários a partir do peso, do número de animais e da frequência de reposição.
 - Clicq: aplicativo para clientes que registra a inspeção de cochos, aponta desperdício e controla estoque, inclusive offline.
-- Resulthal: informativo com casos de clientes, na edição nº 61 (julho de 2024).
+- Resulthal: informativo com casos de fazendas clientes. São 61 edições em PDF, de abril de 2010 a julho de 2024, com casos em Goiás, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Paraná, São Paulo e Tocantins.
 
 ## Páginas
 
 - [Home](https://jgdini.github.io/minerthal/): visão geral, catálogo filtrável e perguntas frequentes.
 - [Produtos no site oficial](https://www.minerthal.com.br/produtos/)
-- [Resulthal](https://www.minerthal.com.br/historias/)
+- [Resulthal](https://jgdini.github.io/minerthal/resulthal.html): arquivo das 61 edições com filtro por produto, estado, sistema e período, e link para cada PDF.
 - [Blog](https://www.minerthal.com.br/noticias/blog/)
 - [Contato](https://www.minerthal.com.br/contato/)
