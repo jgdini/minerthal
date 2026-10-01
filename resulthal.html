@@ -64,7 +64,6 @@ h2{font-size:clamp(2.1rem,4.2vw,3.3rem);font-weight:800;color:var(--navy);margin
 .btn-navy:hover{background:var(--blue)}
 .btn svg{width:18px;height:18px}
 section{padding:110px 0}
-.cv{content-visibility:auto;contain-intrinsic-size:auto 900px}
 #resulthal,#conteudo,.faq{background:#fff}
 
 .topbar{background:var(--navy);color:#d3deef;font-size:.9rem}
@@ -204,7 +203,27 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
 .certs b{font-family:var(--display);font-size:1.3rem;text-transform:uppercase;color:var(--navy);display:block;line-height:1.1;margin-bottom:4px}
 .certs span{color:var(--muted);font-size:.92rem;line-height:1.45;display:block}
 
-.faq .wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start}
+.about .units-block{grid-template-columns:1fr 1.25fr;gap:50px;align-items:center;margin-top:90px}
+.units-list{list-style:none;display:grid;gap:10px;margin-top:26px}
+.units-list li{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--sand);border-radius:16px;padding:16px 18px;transition:border-color .2s,box-shadow .2s}
+.units-list li:hover,.units-list li:focus-within{border-color:var(--navy);box-shadow:var(--shadow)}
+.units-list svg{flex:none;width:30px;height:30px;color:var(--blue);margin-top:4px}
+.units-list small{display:block;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lime-dark)}
+.units-list b{display:block;font-family:var(--display);font-size:1.35rem;line-height:1.1;text-transform:uppercase;color:var(--navy)}
+.units-list span{display:block;color:var(--muted);font-size:.93rem;line-height:1.4;margin-top:2px}
+.units-list a{display:inline-block;font-weight:700;color:var(--blue);font-size:.92rem;padding:6px 0 0}
+.map{position:relative;margin:0}
+.map img{width:100%}
+.pin{position:absolute;transform:translate(14px,-130%);background:var(--navy);color:#fff;font-family:var(--display);font-weight:700;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;padding:5px 11px;border-radius:999px;white-space:nowrap;box-shadow:0 8px 18px -8px rgba(0,0,0,.45);transition:background-color .2s,transform .2s}
+.pin::before{content:"";position:absolute;left:-16px;top:50%;width:12px;height:12px;border-radius:50%;background:var(--lime);border:3px solid #fff;transform:translateY(-50%);box-shadow:0 0 0 4px rgba(166,199,45,.35)}
+.pin-sp-esc{transform:translate(14px,-10%)}
+.units-block:has(li[data-u="to"]:is(:hover,:focus-within)) .pin-to,
+.units-block:has(li[data-u="go"]:is(:hover,:focus-within)) .pin-go,
+.units-block:has(li[data-u="sp"]:is(:hover,:focus-within)) .pin-sp,
+.units-block:has(li[data-u="sp-esc"]:is(:hover,:focus-within)) .pin-sp-esc{background:var(--lime);color:var(--navy)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:1080px){.about .units-block{grid-template-columns:1fr;gap:20px;margin-top:70px}.map{order:-1;max-width:640px;margin:0 auto}}
+@media (max-width:760px){.pin{font-size:.72rem;padding:3px 8px;transform:translate(10px,-120%)}.pin::before{left:-13px;width:10px;height:10px;border-width:2px}.pin-sp-esc{transform:translate(10px,-5%)}}.faq .wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;font-weight:700;font-size:1.15rem;color:var(--navy);line-height:1.35}
 .faq summary::-webkit-details-marker{display:none}
