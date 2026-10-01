@@ -48,6 +48,7 @@
 {"@type":"Question","name":"Como falar com a Minerthal?","acceptedAnswer":{"@type":"Answer","text":"Pelo SAC gratuito 0800 63 4444, pelo WhatsApp (62) 99285-2649 ou pelo e-mail atendimento@minerthal.com.br."}}]}
 ]}
 </script>
+<script>if(location.hash)document.documentElement.classList.add("cv-off")</script>
 <style>
 @font-face{font-family:"Barlow";font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/barlow-400.woff2) format("woff2")}
 @font-face{font-family:"Barlow";font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/barlow-600.woff2) format("woff2")}
@@ -87,6 +88,8 @@ h2{font-size:clamp(2.1rem,4.2vw,3.3rem);font-weight:800;color:var(--navy);margin
 .btn-navy:hover{background:var(--blue)}
 .btn svg{width:18px;height:18px}
 section{padding:110px 0}
+.cv{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.cv-off .cv{content-visibility:visible}
 #resulthal,#conteudo,.faq{background:#fff}
 
 .topbar{background:var(--navy);color:#d3deef;font-size:.9rem}
@@ -509,7 +512,7 @@ address b{color:#fff;font-weight:600}
   </div>
 </section>
 
-<section class="lines" aria-labelledby="lines-title">
+<section class="lines cv" aria-labelledby="lines-title">
   <div class="wrap">
     <span class="eyebrow">Linhas de produto</span>
     <h2 id="lines-title">Corte e leite</h2>
@@ -531,7 +534,7 @@ address b{color:#fff;font-weight:600}
   </div>
 </section>
 
-<section class="mb" aria-labelledby="mb-title">
+<section class="mb cv" aria-labelledby="mb-title">
   <div class="wrap">
     <div>
       <img class="mb-logo" src="assets/img/minerblock-logo.webp" alt="MinerBlock" width="300" height="45" loading="lazy" decoding="async">
@@ -555,7 +558,7 @@ address b{color:#fff;font-weight:600}
   </div>
 </section>
 
-<section id="resulthal" aria-labelledby="res-title">
+<section id="resulthal" class="cv" aria-labelledby="res-title">
   <div class="wrap">
     <div class="head-row">
       <div>
@@ -588,7 +591,7 @@ address b{color:#fff;font-weight:600}
   </div>
 </section>
 
-<section class="apps" id="ferramentas" aria-labelledby="apps-title">
+<section class="apps cv" id="ferramentas" aria-labelledby="apps-title">
   <div class="wrap">
     <span class="eyebrow">Ferramentas</span>
     <h2 id="apps-title">Aplicativos para o dia a dia da fazenda</h2>
@@ -626,7 +629,7 @@ address b{color:#fff;font-weight:600}
   </div>
 </section>
 
-<section id="conteudo" aria-labelledby="cont-title">
+<section id="conteudo" class="cv" aria-labelledby="cont-title">
   <div class="wrap">
     <div class="head-row">
       <div>
@@ -660,7 +663,7 @@ address b{color:#fff;font-weight:600}
   </div>
 </section>
 
-<section class="about" id="sobre" aria-labelledby="about-title">
+<section class="about cv" id="sobre" aria-labelledby="about-title">
   <div class="wrap">
     <div class="about-img">
       <img src="assets/img/empresa-800.webp" alt="Caminhão na unidade industrial da Minerthal, com selo BPF na fachada" loading="lazy" decoding="async" width="800" height="509">
@@ -718,7 +721,7 @@ address b{color:#fff;font-weight:600}
   </div>
 </section>
 
-<section class="faq" id="duvidas" aria-labelledby="faq-title">
+<section class="faq cv" id="duvidas" aria-labelledby="faq-title">
   <div class="wrap">
     <div>
       <span class="eyebrow">Dúvidas frequentes</span>
@@ -823,6 +826,23 @@ address b{color:#fff;font-weight:600}
   document.querySelectorAll('[data-set]').forEach(a => a.addEventListener('click', () => {
     form.querySelector(`input[name=r][value="${a.dataset.set}"]`).checked = true; apply();
   }));
+
+  // âncoras: renderiza tudo antes de rolar, para o destino não mudar de lugar no caminho
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#"]'); if (!a || a.getAttribute('href').length < 2) return;
+    const t = document.querySelector(a.getAttribute('href')); if (!t) return;
+    e.preventDefault();
+    document.documentElement.classList.add('cv-off');
+    void t.offsetTop; // força o layout completo antes de calcular o destino
+    t.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    history.pushState(null, '', a.getAttribute('href'));
+  });
+
+  // chegada com âncora vinda de outra página
+  if (location.hash.length > 1) {
+    const t = document.querySelector(location.hash);
+    if (t) { const go = () => t.scrollIntoView({ behavior: 'instant' }); go(); addEventListener('load', go, { once: true }); }
+  }
 
   // abas blog / imprensa
   const tabs = [...document.querySelectorAll('[role=tab]')];
