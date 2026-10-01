@@ -56,7 +56,7 @@
 @font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/barlow-condensed-700.woff2) format("woff2")}
 @font-face{font-family:"Barlow Condensed";font-style:normal;font-weight:800;font-display:swap;src:url(assets/fonts/barlow-condensed-800.woff2) format("woff2")}
 /* fontes reserva com a mesma largura média da Barlow: a troca de fonte não desloca o layout */
-@font-face{font-family:"Cond Fallback";font-weight:800;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arial");size-adjust:61.7%}
+@font-face{font-family:"Cond Fallback";font-weight:800;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arial");size-adjust:69%}
 @font-face{font-family:"Cond Fallback";font-weight:700;src:local("Arial Bold"),local("Arial-BoldMT"),local("Arial");size-adjust:67.2%}
 @font-face{font-family:"Barlow Fallback";font-weight:400;src:local("Arial"),local("ArialMT");size-adjust:95.4%}
 @font-face{font-family:"Barlow Fallback";font-weight:600;src:local("Arial Bold"),local("Arial-BoldMT");size-adjust:93.4%}
@@ -120,7 +120,8 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
 .hero .wrap{position:relative;z-index:2;min-height:min(86vh,760px);display:flex;flex-direction:column;justify-content:center;padding:90px 0 150px}
 .hero .tag{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:7px 16px;border-radius:999px;font-size:.92rem;width:max-content;max-width:100%}
 .hero .tag i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(166,199,45,.25)}
-.hero h1{font-size:clamp(2.8rem,6.6vw,5.6rem);font-weight:800;max-width:860px;margin:22px 0 18px}
+.hero h1{font-size:min(clamp(2.8rem,6.6vw,5.6rem),calc((100vw - 32px) / 7.3));font-weight:800;margin:22px 0 18px}
+.hero h1 span,.hero h1 em{display:block;white-space:nowrap}
 .hero h1 em{font-style:normal;color:var(--lime)}
 .hero p{font-size:1.2rem;max-width:580px;color:#e3eaf5}
 .hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
@@ -397,7 +398,7 @@ address b{color:#fff;font-weight:600}
   </picture>
   <div class="wrap">
     <span class="tag"><i></i> Fabricante de suplementos minerais desde 1973</span>
-    <h1 id="hero-title">Nutriente certo, na dose certa, <em>o ano todo.</em></h1>
+    <h1 id="hero-title"><span>Nutriente certo,</span> <span>na dose certa,</span> <em>o ano todo.</em></h1>
     <p>Suplementos minerais e proteicos para bovinos de corte e leite, fabricados em São Paulo, Goiás e Tocantins e testados em parceria com a USP de Pirassununga.</p>
     <div class="ctas">
       <a href="#produtos" class="btn btn-lime">Encontrar o suplemento
