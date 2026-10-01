@@ -1,0 +1,37 @@
+# Minerthal
+
+> Fabricante brasileira de suplementos minerais e proteicos para bovinos de corte e de leite, fundada em maio de 1973. Trabalha com o conceito de suplementação de precisão: nutrientes nas quantidades certas para cada fase da produção e cada época do ano.
+
+Site oficial: https://www.minerthal.com.br/
+
+## Fatos principais
+
+- Fundação: 1973. Uma das maiores fabricantes de suplementos minerais para bovinocultura do Brasil.
+- Escritório central: Av. Brigadeiro Faria Lima, 1234, Cj 31, São Paulo (SP), CEP 01451-001.
+- Fábricas e distribuição: Araçatuba (SP), Goiânia (GO) e Araguaína (TO). Atende todas as regiões do Brasil.
+- Certificações: Boas Práticas de Fabricação (BPF) nível avançado, com a unidade de Goiás como primeira fábrica do Centro-Oeste certificada; HACCP do programa Feed & Food Safety.
+- Pesquisa: parceria técnico-científica com a Prefeitura do Campus de Pirassununga (PCSP-USP) e a FZEA-USP desde 2010.
+- Contato: SAC 0800 63 4444, WhatsApp (62) 99285-2649, atendimento@minerthal.com.br.
+
+## Produtos
+
+Catálogo com 43 produtos, classificados por rebanho (corte ou leite), fase (cria, recria, engorda, terminação, bezerras e novilhas, vacas secas, vacas em lactação), época (águas ou seca) e tipo (pronto para uso ou para mistura).
+
+- MinerBlock: linha de 8 suplementos em bloco, prontos para uso, oferecidos à vontade a pasto. No MinerBlock MD a dureza do bloco limita o consumo (135 a 270 g por UA de 450 kg por dia) e dispensa adaptação prévia.
+- Produtos indicados para a seca no gado de corte incluem Minerseca, MD Seca, MinerBlock Proteico 40, MinerBlock Proteico 50 e MinerBlock Cria Proteico.
+- Lista completa: MinerBlock Cria MD, minerblock-cria-md, a bz C cr en u re vs.
+
+## Ferramentas
+
+- Ciclo (Android): monta a estratégia anual de suplementação para cria e para recria e engorda.
+- Calculadora MinerBlock: calcula quantos blocos são necessários a partir do peso, do número de animais e da frequência de reposição.
+- Clicq: aplicativo para clientes que registra a inspeção de cochos, aponta desperdício e controla estoque, inclusive offline.
+- Resulthal: informativo com casos de clientes, na edição nº 61 (julho de 2024).
+
+## Páginas
+
+- [Home](https://jgdini.github.io/minerthal/): visão geral, catálogo filtrável e perguntas frequentes.
+- [Produtos no site oficial](https://www.minerthal.com.br/produtos/)
+- [Resulthal](https://www.minerthal.com.br/historias/)
+- [Blog](https://www.minerthal.com.br/noticias/blog/)
+- [Contato](https://www.minerthal.com.br/contato/)
