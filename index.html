@@ -853,7 +853,8 @@ address b{color:#fff;font-weight:600}
     counters.forEach(el => countIO.observe(el));
   }
 
-  // âncoras: renderiza tudo antes de rolar, para o destino não mudar de lugar no caminho  document.addEventListener('click', e => {
+  // âncoras: renderiza tudo antes de rolar, para o destino não mudar de lugar no caminho
+  document.addEventListener('click', e => {
     const a = e.target.closest('a[href^="#"]'); if (!a || a.getAttribute('href').length < 2) return;
     const t = document.querySelector(a.getAttribute('href')); if (!t) return;
     e.preventDefault();

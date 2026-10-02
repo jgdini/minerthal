@@ -331,7 +331,8 @@ address b{color:#fff;font-weight:600}
 .crumbs{list-style:none;display:flex;flex-wrap:wrap;gap:8px;font-size:.92rem;color:#c7d6eb;margin-bottom:22px}
 .crumbs a{color:#fff}
 .crumbs li+li::before{content:"/";margin-right:8px;color:#8fa9cc}
-.p-hero h1{font-size:clamp(2.5rem,5vw,4.3rem);font-weight:800}
+.p-hero h1{font-size:min(clamp(2.5rem,5vw,4.3rem),calc((100vw - 32px) / var(--k,9)));font-weight:800}
+.p-hero h1 span,.p-hero h1 em{display:block;white-space:nowrap}
 .p-hero h1 em{font-style:normal;color:var(--lime)}
 .p-hero .lead{color:#dbe5f3;margin-top:16px}
 .p-hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
@@ -422,7 +423,7 @@ address b{color:#fff;font-weight:600}
   <div class="wrap">
     <div>
       <nav aria-label="Você está em"><ol class="crumbs"><li><a href="./">Início</a></li><li><a href="./#ferramentas">Ferramentas</a></li><li aria-current="page">Clicq</li></ol></nav>
-      <h1 id="cl-h1">Clicq: o suplemento <em>chegou ao animal?</em></h1>
+      <h1 id="cl-h1" style="--k:8.4"><span>Clicq: o suplemento</span> <em>chegou ao animal?</em></h1>
       <p class="lead">Aplicativo para clientes Minerthal. Com ele, a fazenda confere se os animais estão recebendo o suplemento, aponta desperdício no cocho e acompanha o estoque.</p>
       <div class="ctas">
         <a href="https://api.whatsapp.com/send?phone=5562992852649" class="btn btn-lime" rel="noopener">Quero implementar</a>

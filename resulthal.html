@@ -331,7 +331,8 @@ address b{color:#fff;font-weight:600}
 .crumbs{list-style:none;display:flex;gap:8px;font-size:.92rem;color:#c7d6eb;margin-bottom:22px}
 .crumbs a{color:#fff}
 .crumbs li+li::before{content:"/";margin-right:8px;color:#8fa9cc}
-.r-hero h1{font-size:clamp(2.6rem,5.4vw,4.6rem);font-weight:800}
+.r-hero h1{font-size:min(clamp(2.6rem,5.4vw,4.6rem),calc((100vw - 32px) / 8.8));font-weight:800}
+.r-hero h1 span,.r-hero h1 em{display:block;white-space:nowrap}
 .r-hero h1 em{font-style:normal;color:var(--lime)}
 .r-hero .lead{color:#dbe5f3;margin-top:16px}
 .r-stats{display:grid;grid-template-columns:repeat(4,auto);gap:32px;margin-top:34px;justify-content:start}
@@ -431,7 +432,7 @@ address b{color:#fff;font-weight:600}
   <div class="wrap">
     <div>
       <nav aria-label="Você está em"><ol class="crumbs"><li><a href="./">Início</a></li><li aria-current="page">Resulthal</li></ol></nav>
-      <h1 id="r-title">Resulthal: histórias de sucesso <em>com a Minerthal</em></h1>
+      <h1 id="r-title"><span>Resulthal:</span> <span>histórias de sucesso</span> <em>com a Minerthal</em></h1>
       <p class="lead">O informativo da Minerthal com casos de fazendas clientes. Cada edição mostra a estratégia de suplementação usada no rebanho e o resultado medido: ganho de peso, prenhez, desmama e retorno financeiro.</p>
       <dl class="r-stats">
         <div><dt>edições em PDF</dt><dd class="count" data-target="61">61</dd></div>
