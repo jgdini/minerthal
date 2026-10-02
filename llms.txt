@@ -24,13 +24,15 @@ Catálogo com 43 produtos, classificados por rebanho (corte ou leite), fase (cri
 ## Ferramentas
 
 - Ciclo (Android): monta a estratégia anual de suplementação para cria e para recria e engorda.
-- Calculadora MinerBlock: calcula quantos blocos são necessários a partir do peso, do número de animais e da frequência de reposição.
+- Calculadora MinerBlock: consumo por animal de 35 g (MD), 150 g (Proteico Águas e Seca) ou 300 g (Energético) por 100 kg de peso vivo por dia; blocos de 25 kg = consumo x animais x dias de reposição / 25 kg. Exemplo: 100 animais de 450 kg com MinerBlock MD e reposição a cada 10 dias precisam de 7 blocos (158 g por animal por dia). Também disponível como app Android.
 - Clicq: aplicativo para clientes que registra a inspeção de cochos, aponta desperdício e controla estoque, inclusive offline.
 - Resulthal: informativo com casos de fazendas clientes. São 61 edições em PDF, de abril de 2010 a julho de 2024, com casos em Goiás, Mato Grosso, Mato Grosso do Sul, Minas Gerais, Paraná, São Paulo e Tocantins.
 
 ## Páginas
 
 - [Home](https://jgdini.github.io/minerthal/): visão geral, catálogo filtrável e perguntas frequentes.
+- [MinerBlock e calculadora](https://jgdini.github.io/minerthal/minerblock.html): calculadora de blocos, benefícios para o produtor e para o animal, as 8 versões e perguntas frequentes.
+- [Clicq](https://jgdini.github.io/minerthal/clicq.html): aplicativo para clientes conferirem a suplementação, apontarem desperdício e controlarem estoque, inclusive offline.
 - [Produtos no site oficial](https://www.minerthal.com.br/produtos/)
 - [Resulthal](https://jgdini.github.io/minerthal/resulthal.html): arquivo das 61 edições com filtro por produto, estado, sistema e período, e link para cada PDF.
 - [Blog](https://www.minerthal.com.br/noticias/blog/)

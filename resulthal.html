@@ -106,7 +106,7 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
 .stats dl{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
 .stats div{padding:28px 26px;border-right:1px solid var(--line);display:flex;flex-direction:column-reverse;justify-content:flex-end}
 .stats div:last-child{border-right:0}
-.stats dd{font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--navy)}
+.stats dd{font-family:var(--display);font-weight:800;font-size:2.6rem;line-height:1;color:var(--navy);font-variant-numeric:tabular-nums}
 .stats dt{color:var(--muted);font-size:.95rem;line-height:1.35;margin-top:6px}
 
 .finder-box{background:var(--cream);border-radius:28px;padding:34px;display:grid;grid-template-columns:320px 1fr;gap:34px;margin-top:38px}
@@ -336,7 +336,7 @@ address b{color:#fff;font-weight:600}
 .r-hero .lead{color:#dbe5f3;margin-top:16px}
 .r-stats{display:grid;grid-template-columns:repeat(4,auto);gap:32px;margin-top:34px;justify-content:start}
 .r-stats div{display:flex;flex-direction:column-reverse}
-.r-stats dd{font-family:var(--display);font-weight:800;font-size:2.5rem;line-height:1;color:#fff}
+.r-stats dd{font-family:var(--display);font-weight:800;font-size:2.5rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
 .r-stats dt{font-size:.9rem;color:#c7d6eb;margin-top:4px}
 .latest{background:#fff;color:var(--ink);border-radius:24px;padding:22px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5);display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center}
 .latest img{border-radius:10px;width:120px}
@@ -434,10 +434,10 @@ address b{color:#fff;font-weight:600}
       <h1 id="r-title">Resulthal: histórias de sucesso <em>com a Minerthal</em></h1>
       <p class="lead">O informativo da Minerthal com casos de fazendas clientes. Cada edição mostra a estratégia de suplementação usada no rebanho e o resultado medido: ganho de peso, prenhez, desmama e retorno financeiro.</p>
       <dl class="r-stats">
-        <div><dt>edições em PDF</dt><dd>61</dd></div>
-        <div><dt>primeira edição</dt><dd>2010</dd></div>
-        <div><dt>estados com casos</dt><dd>7</dd></div>
-        <div><dt>produtos avaliados</dt><dd>23</dd></div>
+        <div><dt>edições em PDF</dt><dd class="count" data-target="61">61</dd></div>
+        <div><dt>primeira edição</dt><dd class="count" data-target="2010">2010</dd></div>
+        <div><dt>estados com casos</dt><dd class="count" data-target="7">7</dd></div>
+        <div><dt>produtos avaliados</dt><dd class="count" data-target="23">23</dd></div>
       </dl>
     </div>
     <article class="latest" aria-labelledby="latest-title">
@@ -1246,6 +1246,25 @@ address b{color:#fff;font-weight:600}
   more.addEventListener('click', () => { expanded = true; apply(); items.filter(li => !li.hidden)[LIMIT]?.querySelector('a').focus(); });
   document.getElementById('reset').addEventListener('click', () => { form.reset(); expanded = false; apply(); });
   apply();
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const counters = document.querySelectorAll('.count');
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const animateCount = el => {
+      const target = parseInt(el.dataset.target, 10) || 0, duration = 1300, start = performance.now();
+      const tick = now => {
+        const p = Math.min((now - start) / duration, 1), eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(eased * target);
+        if (p < 1) requestAnimationFrame(tick); else el.textContent = target;
+      };
+      requestAnimationFrame(tick);
+    };
+    counters.forEach(el => { el.textContent = '0'; });
+    const countIO = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { animateCount(en.target); countIO.unobserve(en.target); }
+    }), { threshold: 0.6 });
+    counters.forEach(el => countIO.observe(el));
+  }
 
   const btn = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
   const close = () => { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Abrir menu'); };
