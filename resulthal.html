@@ -83,12 +83,40 @@ section{padding:110px 0}
 header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px;position:relative}
 .logo img{width:200px}
-nav.main ul{display:flex;gap:2px;list-style:none}
-nav.main a{display:block;font-family:var(--display);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:1rem;color:var(--navy);text-decoration:none;padding:10px 13px;border-radius:999px;transition:background-color .2s}
+header.site .wrap{width:min(1320px,100% - 40px);gap:16px}
+nav.main ul{display:flex;gap:0;list-style:none}
+nav.main a{display:block;font-family:var(--display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:.98rem;color:var(--navy);text-decoration:none;padding:10px 11px;border-radius:999px;transition:background-color .2s;white-space:nowrap}
 nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
-.header-cta{padding:12px 20px;min-height:46px;font-size:.95rem}
+.nav-extra{display:none}
+.h-actions{display:flex;align-items:center;gap:10px;flex:none}
+.h-social{display:flex;gap:6px;list-style:none}
+.soc{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff;transition:transform .2s,box-shadow .2s}
+.soc svg{width:20px;height:20px}
+.soc.yt{background:#e00}
+.soc.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 62%,#285aeb 95%)}
+.soc.li{background:#0a66c2}
+.soc:hover{transform:translateY(-2px);box-shadow:0 10px 18px -8px rgba(0,0,0,.45)}
+.h-phone{display:flex;align-items:center;gap:9px;padding:5px 16px 5px 5px;border-radius:999px;border:2px solid var(--lime);text-decoration:none;color:var(--navy);transition:background-color .2s;flex:none}
+.h-phone svg{width:34px;height:34px;padding:8px;border-radius:50%;background:var(--lime);color:var(--navy);flex:none}
+.h-phone small{display:block;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lime-dark);line-height:1.1}
+.h-phone b{display:block;font-family:var(--display);font-size:1.18rem;line-height:1.05;font-weight:800;white-space:nowrap}
+.h-phone:hover{background:#f3f8e3}
+.header-cta{padding:12px 18px;min-height:46px;font-size:.92rem;white-space:nowrap}
 .menu-btn{display:none;background:none;border:0;width:48px;height:48px;cursor:pointer;color:var(--navy)}
 .menu-btn svg{width:28px;height:28px}
+@media (max-width:1360px){
+  nav.main{position:absolute;top:100%;left:-20px;right:-20px;background:#fff;border-bottom:1px solid var(--line);padding:12px 20px 24px;display:none;box-shadow:var(--shadow)}
+  nav.main.open{display:block}
+  nav.main ul{flex-direction:column}
+  nav.main a{padding:14px 10px;font-size:1.15rem}
+  .nav-extra{display:block}
+  nav.main a.nav-tel{margin-top:10px;background:var(--lime);color:var(--navy);text-align:center}
+  .menu-btn{display:grid;place-items:center}
+  .logo{margin-right:auto}
+}
+@media (max-width:860px){.h-phone,.header-cta{display:none}}
+@media (max-width:760px){.soc{width:36px;height:36px;border-radius:10px}.soc svg{width:18px;height:18px}.h-social{gap:5px}.h-actions{gap:6px}.menu-btn{width:44px}}
+@media (max-width:380px){.logo img{width:128px}.soc{width:34px;height:34px}}
 
 .hero{position:relative;color:#fff;padding:0;overflow:hidden;background:var(--navy)}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 55%}
@@ -231,7 +259,53 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
 .units-block:has(li[data-u="sp-esc"]:is(:hover,:focus-within)) .pin-sp-esc{background:var(--lime);color:var(--navy)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media (max-width:1080px){.about .units-block{grid-template-columns:1fr;gap:20px;margin-top:70px}.map{order:-1;max-width:640px;margin:0 auto}}
-@media (max-width:760px){.pin{font-size:.72rem;padding:3px 8px;transform:translate(10px,-120%)}.pin::before{left:-13px;width:10px;height:10px;border-width:2px}.pin-sp-esc{transform:translate(10px,-5%)}}.faq .wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start}
+@media (max-width:760px){.pin{font-size:.72rem;padding:3px 8px;transform:translate(10px,-120%)}.pin::before{left:-13px;width:10px;height:10px;border-width:2px}.pin-sp-esc{transform:translate(10px,-5%)}}.midias{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.midias::before{content:"";position:absolute;width:820px;height:820px;border-radius:50%;background:radial-gradient(circle,rgba(122,168,220,.18),transparent 65%);left:-260px;top:-300px}
+.midias .wrap{position:relative}
+.midias h2{color:#fff}
+.midias .eyebrow{color:#b5d0f0}
+.midias .lead{color:#d0dcee}
+.md-yt{margin-top:40px}
+.md-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.md-head h3{display:flex;align-items:center;gap:10px;font-size:1.7rem;font-weight:800;color:#fff}
+.md-ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;color:#fff}
+.md-ico svg{width:20px;height:20px}
+.md-ico.yt{background:#e00}.md-ico.ig{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fd5949 45%,#d6249f 62%,#285aeb 95%)}.md-ico.li{background:#0a66c2}
+.md-follow{margin-left:auto;font-weight:700;color:var(--lime);padding:8px 0}
+.li-fol{color:#c7d6eb;font-size:.92rem}
+.li-fol b{color:#fff;font-family:var(--display);font-size:1.15rem}
+.yt-grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.yt-media{border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:0 20px 40px -24px rgba(0,0,0,.8)}
+.yt-media iframe{width:100%;height:100%;border:0;display:block}
+.video-play{position:relative;display:block;width:100%;height:100%;border:0;padding:0;cursor:pointer;background:#000}
+.video-play img{width:100%;height:100%;object-fit:cover;opacity:.88;transition:opacity .25s,transform .5s}
+.video-play:hover img{opacity:1;transform:scale(1.04)}
+.video-play .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;background:#e00;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(0,0,0,.6);transition:transform .25s}
+.video-play:hover .play{transform:translate(-50%,-50%) scale(1.1)}
+.video-play .play svg{width:30px;height:30px;margin-left:3px}
+.yt-dur{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.78);color:#fff;font-size:.8rem;font-weight:600;padding:2px 7px;border-radius:6px}
+.yt-date{font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#b5d0f0;margin-top:14px}
+.yt-card h4{font-size:1.08rem;line-height:1.35;font-weight:700;margin-top:4px}
+.yt-card h4 a{color:#fff;text-decoration:none}
+.yt-card h4 a:hover{text-decoration:underline}
+.md-social{display:grid;grid-template-columns:1fr 1.2fr;gap:44px;margin-top:60px;align-items:start}
+.ig-grid{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ig-post{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:#dbe5f3;position:relative}
+.ig-post img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;transition:transform .3s,box-shadow .3s}
+.ig-post:hover img{transform:translateY(-4px);box-shadow:0 16px 30px -14px rgba(0,0,0,.8)}
+.ig-badge{position:absolute;left:8px;top:8px;background:rgba(0,0,0,.6);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+.ig-cap{font-size:.86rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.ig-cap time,.li-meta{display:block;font-size:.75rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--lime);margin-bottom:3px}
+.li-list{list-style:none;display:grid;gap:10px}
+.li-post{display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:10px;text-decoration:none;color:#dbe5f3;transition:background-color .2s,border-color .2s}
+.li-post:hover{background:rgba(255,255,255,.1);border-color:#0a66c2}
+.li-post img{width:132px;aspect-ratio:8/5;object-fit:cover;border-radius:10px}
+.li-post:not(:has(img)){grid-template-columns:1fr;padding:14px 16px}
+.li-body{font-size:.9rem;line-height:1.4;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.md-upd{margin-top:34px;font-size:.82rem;color:#9fb3d1}
+@media (max-width:1080px){.yt-grid{grid-template-columns:1fr 1fr}.md-social{grid-template-columns:1fr}}
+@media (max-width:760px){.yt-grid{grid-template-columns:1fr}.ig-grid{gap:8px}.ig-cap{-webkit-line-clamp:3;font-size:.8rem}.li-post{grid-template-columns:96px 1fr}.li-post img{width:96px}.md-follow{margin-left:0}}
+.faq .wrap{display:grid;grid-template-columns:1fr 1.6fr;gap:60px;align-items:start}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;font-weight:700;font-size:1.15rem;color:var(--navy);line-height:1.35}
 .faq summary::-webkit-details-marker{display:none}
@@ -270,19 +344,31 @@ address p{line-height:1.45;margin-bottom:10px}
 address b{color:#fff;font-weight:600}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:50px;padding-top:24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.88rem}
 
-.wa{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:#1a8f47;color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(0,0,0,.4);transition:transform .2s}
-.wa:hover{transform:scale(1.08)}
-.wa svg{width:32px;height:32px}
+.wa-wrap{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;flex-direction:column;align-items:flex-end;gap:12px;pointer-events:none}
+.wa-wrap>*{pointer-events:auto}
+.wa{position:relative;display:flex;align-items:center;height:62px;border-radius:999px;background:linear-gradient(140deg,#2bd96f 0%,#16a34a 55%,#0f7a3a 100%);color:#fff;text-decoration:none;box-shadow:0 16px 32px -12px rgba(15,122,58,.85),0 2px 0 rgba(255,255,255,.25) inset,0 -3px 8px rgba(0,0,0,.18) inset;transition:transform .3s cubic-bezier(.2,.8,.3,1.4),box-shadow .3s}
+.wa:hover,.wa:focus-visible{transform:translateY(-4px);box-shadow:0 22px 40px -12px rgba(15,122,58,.9),0 2px 0 rgba(255,255,255,.25) inset}
+.wa::before,.wa::after{content:"";position:absolute;left:0;top:0;width:62px;height:62px;border-radius:50%;border:2px solid rgba(43,217,111,.8);animation:wa-pulse 2.8s cubic-bezier(.2,.6,.3,1) infinite;pointer-events:none}
+.wa::after{animation-delay:1.4s}
+.wa-ico{width:62px;height:62px;display:grid;place-items:center;flex:none}
+.wa-ico svg{width:33px;height:33px;filter:drop-shadow(0 2px 3px rgba(0,0,0,.25));animation:wa-wiggle 7s ease-in-out infinite;transform-origin:50% 60%}
+.wa-label{max-width:0;overflow:hidden;white-space:nowrap;font-family:var(--display);font-weight:700;letter-spacing:.05em;text-transform:uppercase;font-size:1rem;transition:max-width .4s ease,padding .4s ease}
+.wa:hover .wa-label,.wa:focus-visible .wa-label{max-width:220px;padding-right:24px}
+.wa-dot{position:absolute;left:43px;top:3px;width:15px;height:15px;border-radius:50%;background:#ff3b30;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);animation:wa-pop .5s cubic-bezier(.2,.8,.3,1.6) both 1s}
+.wa-bubble{position:relative;max-width:270px;background:#fff;color:var(--ink);border-radius:20px 20px 6px 20px;padding:14px 40px 14px 16px;box-shadow:0 20px 40px -16px rgba(14,43,82,.55);font-size:.94rem;line-height:1.4;animation:wa-in .45s cubic-bezier(.2,.8,.3,1.3) both}
+.wa-bubble b{display:block;color:var(--navy);font-size:1rem}
+.wa-bubble a{color:#0f7a3a;font-weight:700}
+.wa-x{position:absolute;top:6px;right:6px;width:30px;height:30px;border:0;border-radius:50%;background:none;color:var(--muted);font-size:1.35rem;line-height:1;cursor:pointer}
+.wa-x:hover{background:var(--cream)}
+@keyframes wa-pulse{0%{transform:scale(1);opacity:.85}100%{transform:scale(1.85);opacity:0}}
+@keyframes wa-wiggle{0%,86%,100%{transform:rotate(0)}88%{transform:rotate(-16deg)}90%{transform:rotate(13deg)}92%{transform:rotate(-9deg)}94%{transform:rotate(6deg)}96%{transform:rotate(0)}}
+@keyframes wa-pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes wa-in{from{opacity:0;transform:translateY(12px) scale(.94)}to{opacity:1;transform:none}}
+@media (max-width:760px){.wa-wrap{right:16px;bottom:16px}.wa-bubble{max-width:230px;font-size:.9rem}}
 
-@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 
 @media (max-width:1080px){
-  nav.main{position:absolute;top:100%;left:-20px;right:-20px;background:#fff;border-bottom:1px solid var(--line);padding:12px 20px 24px;display:none;box-shadow:var(--shadow)}
-  nav.main.open{display:block}
-  nav.main ul{flex-direction:column}
-  nav.main a{padding:14px 10px;font-size:1.15rem}
-  .menu-btn{display:grid;place-items:center}
-  .header-cta{display:none}
   .finder-box{grid-template-columns:1fr}
   .mb .wrap,.about .wrap,.cta-box,.faq .wrap{grid-template-columns:1fr}
   .faq .wrap{gap:20px}
@@ -394,14 +480,11 @@ address b{color:#fff;font-weight:600}
 <div class="topbar">
   <div class="wrap">
     <div class="l">
-      <span>SAC <a href="tel:+558006344444"><b>0800 63 4444</b></a></span>
-      <span class="hide-m">WhatsApp <a href="https://api.whatsapp.com/send?phone=5562992852649" rel="noopener">(62) 99285-2649</a></span>
+      <span>WhatsApp <a href="https://api.whatsapp.com/send?phone=5562992852649" rel="noopener"><b>(62) 99285-2649</b></a></span>
+      <span class="hide-m"><a href="mailto:atendimento@minerthal.com.br">atendimento@minerthal.com.br</a></span>
     </div>
     <div class="r">
       <a href="https://www.minerthal.com.br/trabalhe-conosco/">Trabalhe conosco</a>
-      <a href="https://www.instagram.com/minerthal" rel="noopener">Instagram</a>
-      <a href="https://www.facebook.com/Minerthal/" rel="noopener">Facebook</a>
-      <a href="https://www.youtube.com/channel/UCYkbAf5khwxaMfa7pXLqmcA" rel="noopener">YouTube</a>
     </div>
   </div>
 </div>
@@ -415,15 +498,24 @@ address b{color:#fff;font-weight:600}
         <li><a href="./#produtos">Produtos</a></li>
         <li><a href="resulthal.html" aria-current="page">Resulthal</a></li>
         <li><a href="./#ferramentas">Ferramentas</a></li>
-        <li><a href="./#conteudo">Imprensa</a></li>
+        <li><a href="./#midias">Mídias</a></li>
         <li><a href="./#conteudo">Blog</a></li>
-        <li><a href="./#contato">Contato</a></li>
+        <li class="nav-extra"><a href="./#contato">Contato</a></li>
+        <li class="nav-extra"><a href="tel:+558006344444" class="nav-tel">SAC 0800 63 4444</a></li>
       </ul>
     </nav>
-    <a href="./#contato" class="btn btn-navy header-cta">Falar com um técnico</a>
-    <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
+    <div class="h-actions">
+      <ul class="h-social" aria-label="Redes sociais da Minerthal">
+        <li><a class="soc yt" href="https://www.youtube.com/@minerthalprodutosagropecuarios" aria-label="YouTube da Minerthal" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9L15.5 12Z"/></svg></a></li>
+        <li><a class="soc ig" href="https://www.instagram.com/minerthal/" aria-label="Instagram da Minerthal" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg></a></li>
+        <li><a class="soc li" href="https://www.linkedin.com/company/minerthal-produtos-agropecu-rios-ltda-/" aria-label="LinkedIn da Minerthal" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a></li>
+      </ul>
+      <a class="h-phone" href="tel:+558006344444"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2Z"/></svg><span><small>SAC gratuito</small><b>0800 63 4444</b></span></a>
+      <a href="./#contato" class="btn btn-navy header-cta">Falar com um técnico</a>
+      <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -1189,6 +1281,7 @@ address b{color:#fff;font-weight:600}
           <a href="https://www.instagram.com/minerthal" aria-label="Instagram da Minerthal" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
           <a href="https://www.facebook.com/Minerthal/" aria-label="Facebook da Minerthal" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9V7c0-1 .3-1.5 1.6-1.5H17V2h-2.6C11.2 2 10 3.7 10 6.4V9H7.5v3.5H10V22h4v-9.5h2.8L17.3 9Z"/></svg></a>
           <a href="https://www.youtube.com/channel/UCYkbAf5khwxaMfa7pXLqmcA" aria-label="Canal da Minerthal no YouTube" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9L15.5 12Z"/></svg></a>
+          <a href="https://www.linkedin.com/company/minerthal-produtos-agropecu-rios-ltda-/" aria-label="LinkedIn da Minerthal" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45Z"/></svg></a>
         </div>
       </div>
       <nav aria-labelledby="f-nav">
@@ -1216,9 +1309,17 @@ address b{color:#fff;font-weight:600}
   </div>
 </footer>
 
-<a class="wa" href="https://api.whatsapp.com/send?phone=5562992852649" aria-label="Falar com a Minerthal no WhatsApp" rel="noopener">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4Z"/></svg>
-</a>
+<div class="wa-wrap">
+  <div class="wa-bubble" id="wa-bubble" role="status" hidden>
+    <button type="button" class="wa-x" aria-label="Fechar mensagem">×</button>
+    <b>Precisa de ajuda?</b>Um técnico da Minerthal indica o suplemento para o seu rebanho. <a href="https://api.whatsapp.com/send?phone=5562992852649" rel="noopener">Chamar no WhatsApp</a>
+  </div>
+  <a class="wa" href="https://api.whatsapp.com/send?phone=5562992852649" aria-label="Falar com a Minerthal no WhatsApp" rel="noopener">
+    <span class="wa-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 .9c.3.2.5.2.6.4 0 .1 0 .7-.2 1.4Z"/></svg></span>
+    <span class="wa-label" aria-hidden="true">Fale no WhatsApp</span>
+    <i class="wa-dot" aria-hidden="true"></i>
+  </a>
+</div><!--/wa-->
 
 <script>
 (() => {
@@ -1267,6 +1368,15 @@ address b{color:#fff;font-weight:600}
     counters.forEach(el => countIO.observe(el));
   }
 
+  const bubble = document.getElementById('wa-bubble');
+  if (bubble) {
+    const KEY = 'mt-wa-bubble', dot = document.querySelector('.wa-dot');
+    let seen = false; try { seen = sessionStorage.getItem(KEY) === '1'; } catch {}
+    const dismiss = () => { bubble.hidden = true; dot?.remove(); try { sessionStorage.setItem(KEY, '1'); } catch {} };
+    if (seen) dot?.remove(); else setTimeout(() => { if (!seen) bubble.hidden = false; }, 7000);
+    bubble.querySelector('.wa-x').addEventListener('click', dismiss);
+    document.querySelectorAll('.wa, .wa-bubble a').forEach(a => a.addEventListener('click', dismiss));
+  }
   const btn = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
   const close = () => { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Abrir menu'); };
   btn.addEventListener('click', () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); btn.setAttribute('aria-label', o ? 'Fechar menu' : 'Abrir menu'); });

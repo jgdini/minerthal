@@ -1,0 +1,54 @@
+name: Atualizar mídias
+
+# Busca os vídeos do YouTube e os posts do Instagram e do LinkedIn da Minerthal
+# duas vezes por dia e atualiza o bloco "Mídias" da home. Se uma rede falhar,
+# os itens anteriores continuam no ar. Também dá para rodar à mão em Actions >
+# "Atualizar mídias" > Run workflow.
+on:
+  schedule:
+    - cron: '0 10,22 * * *'   # 07h e 19h no horário de Brasília
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-midias
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Instalar dependências
+        run: npm install --no-audit --no-fund
+
+      - name: Buscar YouTube, Instagram e LinkedIn
+        env:
+          # Opcional: token da API do Instagram (ver scripts/README.md).
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: node scripts/update-midias.mjs
+
+      - name: Gerar páginas internas e validar
+        run: |
+          node scripts/gen-resulthal.mjs
+          node scripts/gen-pages.mjs
+          node scripts/check.cjs
+
+      - name: Commitar se houve mudança
+        run: |
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard assets/img/midias)" ]; then
+            echo "Sem novidades nas redes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A index.html assets/data/midias.json assets/img/midias resulthal.html minerblock.html clicq.html
+          git commit -m "Atualiza o bloco Mídias automaticamente"
+          git push

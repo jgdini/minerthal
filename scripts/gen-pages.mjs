@@ -10,7 +10,7 @@ const css = home.match(/<style>([\s\S]*?)<\/style>/)[1];
 const header = home.match(/<div class="topbar">[\s\S]*?<\/header>/)[0]
   .replace(/href="#(?!conteudo-principal)/g, 'href="./#').replace(/ data-tab="[a-z]+"/g, '');
 const footer = home.match(/<footer>[\s\S]*?<\/footer>/)[0].replace(/href="#/g, 'href="./#');
-const wa = home.match(/<a class="wa"[\s\S]*?<\/a>/)[0];
+const wa = home.match(/<div class="wa-wrap">[\s\S]*?<!--\/wa-->/)[0];
 const cta = home.match(/<section class="cta"[\s\S]*?<\/section>/)[0];
 const WHATS = 'https://api.whatsapp.com/send?phone=5562992852649';
 const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
@@ -40,6 +40,15 @@ export const COUNT_JS = `
   }`;
 
 const MENU_JS = `
+  const bubble = document.getElementById('wa-bubble');
+  if (bubble) {
+    const KEY = 'mt-wa-bubble', dot = document.querySelector('.wa-dot');
+    let seen = false; try { seen = sessionStorage.getItem(KEY) === '1'; } catch {}
+    const dismiss = () => { bubble.hidden = true; dot?.remove(); try { sessionStorage.setItem(KEY, '1'); } catch {} };
+    if (seen) dot?.remove(); else setTimeout(() => { if (!seen) bubble.hidden = false; }, 7000);
+    bubble.querySelector('.wa-x').addEventListener('click', dismiss);
+    document.querySelectorAll('.wa, .wa-bubble a').forEach(a => a.addEventListener('click', dismiss));
+  }
   const btn = document.querySelector('.menu-btn'), nav = document.getElementById('nav');
   const close = () => { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Abrir menu'); };
   btn.addEventListener('click', () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); btn.setAttribute('aria-label', o ? 'Fechar menu' : 'Abrir menu'); });

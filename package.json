@@ -1,0 +1,12 @@
+{
+  "name": "minerthal-redesign",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "midias": "node scripts/update-midias.mjs",
+    "paginas": "node scripts/gen-resulthal.mjs && node scripts/gen-pages.mjs && node scripts/check.cjs"
+  },
+  "devDependencies": {
+    "sharp": "0.34.5"
+  }
+}
