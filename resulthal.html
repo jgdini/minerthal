@@ -194,6 +194,8 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
   @keyframes hero-out{to{opacity:.1;transform:translateY(-70px)}}
 }}
 @media (max-width:1080px){.hero-elements,.hero-net,.hero-scan{display:none}}
+/* no celular os modos de mistura (raios e grão) custam caro para pintar e quase não aparecem */
+@media (max-width:760px){.hero-rays,.hero-grain{display:none}}
 
 .stats{position:relative;z-index:3;margin-top:-86px}
 .stats dl{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
