@@ -124,7 +124,7 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
 .hero .wrap{position:relative;z-index:2;min-height:min(86vh,760px);display:flex;flex-direction:column;justify-content:center;padding:90px 0 150px}
 .hero .tag{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:7px 16px;border-radius:999px;font-size:.92rem;width:max-content;max-width:100%}
 .hero .tag i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px rgba(166,199,45,.25)}
-.hero h1{font-size:min(clamp(2.8rem,6.6vw,5.6rem),calc((100vw - 32px) / 7.3));font-weight:800;margin:22px 0 18px}
+.hero h1{text-wrap:nowrap;font-size:min(clamp(2.8rem,6.6vw,5.6rem),calc((100vw - 32px) / 7.3));font-weight:800;margin:22px 0 18px}
 .hero h1 span,.hero h1 em{display:block;white-space:nowrap}
 .hero h1 em{font-style:normal;color:var(--lime)}
 .hero p{font-size:1.2rem;max-width:580px;color:#e3eaf5}
@@ -142,7 +142,8 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
 .hero-dust{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
 .hero-grain{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero .tag{animation:hero-up .6s var(--ease) .1s both}
-.hero .tag i{animation:hero-pulse 2.6s ease-in-out 1.2s infinite}
+.hero .tag i{position:relative}
+.hero .tag i::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(166,199,45,.6);animation:hero-ring 2.6s cubic-bezier(.2,.6,.3,1) 1.2s infinite;opacity:0}
 .hero h1 .ln{display:block;overflow:hidden;padding:.06em 0 .12em;margin:-.06em 0 -.12em}
 .hero h1 .ln>span{display:block;animation:hero-mask .8s var(--ease) both}
 .hero h1>.ln:nth-child(1)>span{animation-delay:.2s}
@@ -182,7 +183,7 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
 @keyframes hero-up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 @keyframes hero-fade{to{opacity:1}}
 @keyframes hero-wipe{to{clip-path:inset(0 0 0 0)}}
-@keyframes hero-pulse{0%,100%{box-shadow:0 0 0 4px rgba(166,199,45,.25)}50%{box-shadow:0 0 0 9px rgba(166,199,45,0)}}
+@keyframes hero-ring{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.2);opacity:0}}
 @keyframes hero-rays{from{transform:rotate(-1.6deg);opacity:.55}to{transform:rotate(1.6deg);opacity:.95}}
 @keyframes hero-scan{0%{transform:translateX(0);opacity:0}2%{opacity:1}11%{opacity:1}13%,100%{transform:translateX(min(46vw,640px));opacity:0}}
 @keyframes el-in{from{opacity:0;scale:.8;filter:blur(8px)}to{opacity:1;scale:1;filter:blur(0)}}
@@ -195,7 +196,9 @@ nav.main a:hover,nav.main a[aria-current]{background:var(--sky-soft)}
 }}
 @media (max-width:1080px){.hero-elements,.hero-net,.hero-scan{display:none}}
 /* no celular os modos de mistura (raios e grão) custam caro para pintar e quase não aparecem */
-@media (max-width:760px){.hero-rays,.hero-grain{display:none}}
+@media (max-width:760px){.hero-rays,.hero-grain{display:none}
+  .hero h1 .ln{overflow:visible;padding:0;margin:0}
+  .hero h1 .ln>span{animation-name:hero-up;animation-duration:.7s}}
 
 .stats{position:relative;z-index:3;margin-top:-86px}
 .stats dl{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
